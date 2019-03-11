@@ -26,9 +26,12 @@ Page({
         console.log(res.data[0].cardid)
         self.setData({
           cardid: res.data[0].cardid,
-          message: res.data[0].message
+          //message: res.data[0].message
         })
       }
+    })
+    wx.showToast({
+      title: '按钮响应函数', 
     })
   },
   /**
