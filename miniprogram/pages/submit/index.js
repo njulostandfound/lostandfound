@@ -35,8 +35,12 @@ Page({
       }
     })
     wx.showToast({
-      title: 'Success',
+      title: '提交成功',
     })
+    setTimeout(function () {
+      wx.navigateBack({
+      })
+    }, 1000)
   },
   /**
    * 生命周期函数--监听页面加载
