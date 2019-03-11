@@ -34,6 +34,9 @@ Page({
         console.log(res)
       }
     })
+    wx.showToast({
+      title: 'Success',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
