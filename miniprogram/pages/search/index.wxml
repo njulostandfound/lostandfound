@@ -7,7 +7,7 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="section">
     <view class="section__title">校园卡ID</view>
-    <input name="cardid" placeholder="在此输入" />
+    <input name="cardid" placeholder="在此输入" size="40" />
   </view>
   <view class="section">
     <view class="section__title">校园卡主人</view>
