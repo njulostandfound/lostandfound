@@ -13,18 +13,18 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/index/index",
-      "text": "text",
+      "pagePath": "pages/search/index",
+      "text": "搜索",
       "iconPath": "pages/2.png",
       "selectedIconPath": "pages/1.png"
     },{
       "pagePath": "pages/submit/index",
-      "text": "text2",
+      "text": "发布",
       "iconPath": "pages/2.png",
       "selectedIconPath": "pages/1.png"
     },{
-      "pagePath": "pages/search/index",
-      "text": "text3",
+      "pagePath": "pages/index/index",
+      "text": "index",
       "iconPath": "pages/2.png",
       "selectedIconPath": "pages/1.png"
     }]
