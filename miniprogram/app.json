@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/wxml/index",
     "pages/submit/index",
+    "pages/search/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
