@@ -34,7 +34,7 @@
       },
       {
         "pagePath": "pages/index/index",
-        "text": "index",
+        "text": "我的",
         "iconPath": "images/2.png",
         "selectedIconPath": "images/1.png"
       }
