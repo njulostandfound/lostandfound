@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    radioItems: [
+      { name: 'Lost', value: '0', type: "lost" },
+      { name: 'Found', value: '1', type: "found",checked: true }
+    ],
 
   },
   formSubmit: function (e) {
