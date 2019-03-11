@@ -1,0 +1,29 @@
+<!--pages/summit/index.wxml-->
+<view class="viewTitle">
+    <text class="view-Name">发布信息</text>
+    <view class="lineView"></view>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">校园卡ID</view>
+    <input name="cardid" placeholder="在此输入" />
+  </view>
+  <view class="section">
+    <view class="section__title">校园卡主人</view>
+    <input name="cardname" placeholder="在此输入" />
+  </view>
+  <view class="section section_gap">
+    <view class="section__title">发布类型</view>
+    <radio-group name="type">
+      <label><radio value="lost"/>Lost</label>
+      <label><radio value="found"/>Found</label>
+    </radio-group>
+  </view>
+  <view class="section">
+    <view class="section__title">联系方式与失物地点</view>
+    <input name="message" placeholder="在此输入" />
+  </view>
+  <view class="btn-area">
+    <button type="primary" formType='submit'> 发布 </button>
+  </view>
+</form>

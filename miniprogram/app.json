@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/wxml/index",
+    "pages/submit/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",

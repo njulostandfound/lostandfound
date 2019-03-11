@@ -47,4 +47,10 @@
     </navigator>
   </view>
 
+  <view class="uploader">
+    <navigator url="../submit/index" open-type="navigate" class="uploader-text">
+      <text>发布信息</text>
+    </navigator>
+  </view>
+
 </view>
