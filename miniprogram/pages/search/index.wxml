@@ -1,0 +1,21 @@
+<!--pages/search/index.wxml-->
+<!--pages/summit/index.wxml-->
+<view class="viewTitle">
+    <text class="view-Name">查询信息</text>
+    <view class="lineView"></view>
+</view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <view class="section__title">校园卡ID</view>
+    <input name="cardid" placeholder="在此输入" />
+  </view>
+  <view class="section">
+    <view class="section__title">校园卡主人</view>
+    <input name="cardname" placeholder="在此输入" />
+  </view>
+  <view class="btn-area">
+    <button type="primary" formType='submit'> 查询 </button>
+  </view>
+</form>
+<view>校园卡号：{{cardid}}</view>
+<view>相关信息：{{message}}</view>
