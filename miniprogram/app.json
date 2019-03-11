@@ -1,14 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/submit/index",
     "pages/search/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/submit/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -16,5 +10,23 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 SlowStart",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "text",
+      "iconPath": "pages/2.png",
+      "selectedIconPath": "pages/1.png"
+    },{
+      "pagePath": "pages/submit/index",
+      "text": "text2",
+      "iconPath": "pages/2.png",
+      "selectedIconPath": "pages/1.png"
+    },{
+      "pagePath": "pages/search/index",
+      "text": "text3",
+      "iconPath": "pages/2.png",
+      "selectedIconPath": "pages/1.png"
+    }]
   }
 }
