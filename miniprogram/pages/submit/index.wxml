@@ -24,7 +24,32 @@
                   <input name="cardname" class="weui-input" placeholder="请输入校园卡主人"/>
               </view>
           </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">失物地点</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input name="position" class="weui-input" placeholder="请输入丢失或找到的位置"/>
+              </view>
+          </view>
+        <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">联系方式</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input name="contact" class="weui-input" placeholder="请输入联系方式"/>
+              </view>
         </view>
+        <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">备注</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input name="msg" class="weui-input" placeholder="请输入其它的信息"/>
+              </view>
+        </view>
+      </view>
+        
         
         <view class="weui-cells__title">发布类型</view>
         <view class="weui-cells weui-cells_after-title">
@@ -40,17 +65,6 @@
             </radio-group>
         </view>
 
-        <view class="weui-cells__title">失物地点与联系方式</view>
-        <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell">
-                <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入信息" style="height: 3.3em" />
-                    <!-- this counter does not work!-->
-                    <view class="weui-textarea-counter">200以内</view>
-                    
-                </view>
-            </view>
-        </view>
         <view class="weui-btn-area">
           <button class="weui-btn" type="primary" formType='submit'>发布招领信息</button>
         </view>
