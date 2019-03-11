@@ -28,7 +28,6 @@ Page({
           cardid: res.data[0].cardid,
           message: res.data[0].message
         })
-        console.log("changed data:",{self: data.cardid, self: data.message})
       }
     })
   },
