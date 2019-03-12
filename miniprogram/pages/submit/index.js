@@ -25,15 +25,31 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    const db = wx.cloud.database()
-    const posts = db.collection('posts')
-    e.detail.value.date = db.serverDate()
-    posts.add({
-      data:e.detail.value,
-      success(res){
-        console.log(res)
-      }
-    })
+    var that = this;
+    if(e.detail.value.cardid==''||e.detail.value.cardname==''){
+      this.setData({
+        showTopTips: true
+      });
+      setTimeout(function () {
+        that.setData({
+          showTopTips: false
+        });
+      }, 3000);
+    }
+    else{
+      const db = wx.cloud.database()
+      const posts = db.collection('posts')
+      e.detail.value.date = db.serverDate()
+      posts.add({
+        data: e.detail.value,
+        success(res) {
+          console.log(res)
+          wx.navigateTo({
+            url: 'msg_success'//?postid='+res._id
+          })
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

@@ -5,6 +5,7 @@
         <view class="page__desc">目前只支持校园卡失物招领噢~</view>
     </view>
     <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">ID或主人不能为空~</view>
       <form bindsubmit="formSubmit" bindreset="formReset">
         <view class="weui-cells__title">校园卡信息</view>
         <view class="weui-cells weui-cells_after-title">
