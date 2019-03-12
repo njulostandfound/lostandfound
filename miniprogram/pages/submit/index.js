@@ -1,4 +1,4 @@
-// pages/summit/index.js
+  // pages/summit/index.js
 Page({
 
   /**
