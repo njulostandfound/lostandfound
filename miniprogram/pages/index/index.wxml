@@ -1,4 +1,20 @@
 <!--index.wxml-->
+
+
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+      <open-data type="userNickName" lang="zh_CN"></open-data> 
+    </view>
+  </view>
+
+
 <view class="container">
   <view class="uploader">
     <navigator url="../submit/index" open-type="navigate" class="uploader-text">
