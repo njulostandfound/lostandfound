@@ -1,18 +1,33 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/search/index",
+    "pages/submit/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "云开发 SlowStart",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#3cc51f",
+    "list": [{
+      "pagePath": "pages/search/index",
+      "text": "主页",
+      "iconPath": "pages/home80.png",
+      "selectedIconPath": "pages/home80.png"
+    },{
+      "pagePath": "pages/submit/index",
+      "text": "发布",
+      "iconPath": "pages/plus80.png",
+      "selectedIconPath": "pages/plus80.png"
+    },{
+      "pagePath": "pages/index/index",
+      "text": "我的",
+      "iconPath": "pages/user80.png",
+      "selectedIconPath": "pages/user80.png"
+    }]
   }
 }
