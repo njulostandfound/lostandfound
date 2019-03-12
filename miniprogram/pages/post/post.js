@@ -39,6 +39,28 @@ Page({
         }
       })
     }
+    else{
+      console.log('展示记录id:', options.postid)
+      const db = wx.cloud.database()
+      const posts = db.collection('posts')
+      const _ = db.command
+      var self = this
+      posts.where({
+        _id: options.postid
+      }).get({
+          success(res) {
+            console.log(res.data[0].cardid)
+            self.setData({
+              postname: "校园卡",
+              cardid: res.data[0].cardid,
+              cardname: res.data[0].cardname,
+              location: res.data[0].location,
+              contact: res.data[0].contact,
+              msg: res.data[0].msg
+            })
+          }
+        })
+    }
  
   },
 

@@ -28,6 +28,7 @@
         </view>
         <view class="weui-btn-area">
           <button class="weui-btn" type="primary" formType='submit'>查询</button>
+          <button class="weui-btn" type="default" formType='reset'>重置</button>
         </view>
       </form>
     </view>

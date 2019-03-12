@@ -5,11 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cardid:"等待查询",
-    message:"等待查询"
+
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log('form发生了submit.search事件，携带数据为：', e.detail.value)
     const db = wx.cloud.database()
     const posts = db.collection('posts')
     const _ = db.command
@@ -23,13 +22,16 @@ Page({
       }
     ])).get({
       success(res){
-        console.log(res.data[0].cardid)
-        self.setData({
-          cardid: res.data[0].cardid,
-          message: res.data[0].message
+        console.log(res.data[0])
+        wx.navigateTo({
+          url: '/pages/post/post?postid='+res.data[0]._id
         })
       }
     })
+  },
+
+  formReset: function (){
+    console.log("查询表单发出reset动作")
   },
   /**
    * 生命周期函数--监听页面加载
