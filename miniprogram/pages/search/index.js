@@ -51,7 +51,7 @@ Page({
       console.log("exists empty item")
       wx.showToast({
         title: '表单不能为空',
-        icon: 'loading',
+        icon: 'none',
       })
     }
   },
