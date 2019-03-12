@@ -12,7 +12,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#f00",
+    "selectedColor": "#3cc51f",
     "list": [{
       "pagePath": "pages/search/index",
       "text": "搜索",
