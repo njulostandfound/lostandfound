@@ -13,14 +13,16 @@ Page({
     const posts = db.collection('posts')
     const _ = db.command
     var self = this
-    posts.where(_.or([
+    posts.where(_.and(
       {
-        cardid: _.eq(e.detail.value.cardid)
+        cardid: _.eq(e.detail.value.cardid),
+        cardname: _.eq(e.detail.value.cardname)
       },
       {
-        cardname: _.eq(e.detail.value.cardname)
+        cardid: _.neq(''),
+        cardname: _.neq('')
       }
-    ])).get({
+    )).get({
       success: function(res){
         console.log(res)
         if(res.data.length){
