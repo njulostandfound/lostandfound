@@ -29,7 +29,7 @@
                   <view class="weui-label">失物地点</view>
               </view>
               <view class="weui-cell__bd">
-                  <input name="position" class="weui-input" placeholder="请输入丢失或找到的位置"/>
+                  <input name="location" class="weui-input" placeholder="请输入丢失或找到的位置"/>
               </view>
           </view>
         <view class="weui-cell weui-cell_input">

@@ -12,4 +12,10 @@
     </navigator>
   </view>
 
+  <view class="uploader">
+    <navigator url="../post/post?postid=-1" open-type="navigate" class="uploader-text">
+      <text>最新post</text>
+    </navigator>
+  </view>
+
 </view>
