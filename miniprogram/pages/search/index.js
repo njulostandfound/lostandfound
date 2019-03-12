@@ -21,11 +21,26 @@ Page({
         cardname: _.eq(e.detail.value.cardname)
       }
     ])).get({
-      success(res){
-        console.log(res.data[0])
-        wx.navigateTo({
-          url: '/pages/post/post?postid='+res.data[0]._id
-        })
+      success: function(res){
+        console.log(res)
+        if(res.data.length){
+          console.log("query success")
+          wx.navigateTo({
+            url: '/pages/post/post?postid=' + res.data[0]._id
+          })
+        }
+        else {
+          console.log("failed to get")
+          wx.showModal({
+            content: '没有找到失物信息。',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          })
+        }
       }
     })
   },

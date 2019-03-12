@@ -24,10 +24,10 @@ Page({
       const posts = db.collection('posts')
       const _ = db.command
       var self = this
-      posts.limit(2)
+      posts.orderBy("date","desc").limit(5)
         .get({
         success(res) {
-          console.log(res.data[0].cardid)
+          console.log(res.data)
           self.setData({
             postname: "校园卡",
             cardid: res.data[0].cardid,
