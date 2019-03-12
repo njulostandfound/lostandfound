@@ -6,16 +6,15 @@ cloud.init()
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  console.log("进入云函数search")
+  console.log("进入云函数post")
   console.log(event)
   const db = cloud.database()
   const posts = db.collection('posts')
-  try{
-    return await posts.orderBy("date","desc").where({
-      cardid: event.cardid,
-      cardname: event.cardname
+  try {
+    return await posts.where({
+      _id: event.postid
     }).get()
-  }catch(e){
+  } catch (e) {
     console.log(e)
   }
 }
