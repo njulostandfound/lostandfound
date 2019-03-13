@@ -4,7 +4,8 @@
     "pages/search/index",
     "pages/submit/index",
     "pages/submit/msg_success",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/addLost/addLost"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -23,6 +24,12 @@
     },{
       "pagePath": "pages/submit/index",
       "text": "发布",
+      "iconPath": "pages/plus80.png",
+      "selectedIconPath": "pages/plus80.png"
+    },
+    {
+      "pagePath": "pages/addLost/addLost",
+      "text": "添加",
       "iconPath": "pages/plus80.png",
       "selectedIconPath": "pages/plus80.png"
     },{
