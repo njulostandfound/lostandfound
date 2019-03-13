@@ -45,7 +45,7 @@ Page({
         success(res) {
           console.log(res)
           wx.navigateTo({
-            url: 'msg_success'//?postid='+res._id
+            url: 'msg_success?postid='+res._id
           })
         }
       })

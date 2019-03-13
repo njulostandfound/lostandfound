@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/search/index",
     "pages/submit/index",
+    "pages/submit/msg_success",
     "pages/post/post"
   ],
   "window": {
