@@ -1,5 +1,5 @@
 {
-  "name": "sendmessage",
+  "name": "send-message",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "wx-server-sdk": "latest"
+    "wx-server-sdk": "latest",
+    "wx-js-utils": "latest"
   }
 }
