@@ -1,6 +1,5 @@
   // pages/summit/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -49,6 +48,10 @@ Page({
             url: 'msg_success?postid='+res._id
           })
         }
+      }),
+      wx.cloud.callFunction({
+        name: 'sendornot',
+        data:e,
       })
     }
   },
