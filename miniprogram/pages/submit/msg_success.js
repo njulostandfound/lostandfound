@@ -4,8 +4,6 @@ Page({
     postid: ""
   },
 
-
-
   onLoad: function (options) {
     console.log("options:")
     console.log(options)
@@ -14,12 +12,12 @@ Page({
     this.setData({
       postid: options.postid
       })
-    console.log(postid)
+    console.log(this.data.postid)
   },
 
   check: function () {
     wx.redirectTo({
-      url: '/pages/post/post?postid=' + postid
+      url: '/pages/post/post?postid=' + this.data.postid
     })
   },
 
