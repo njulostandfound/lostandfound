@@ -40,6 +40,7 @@ Page({
       const db = wx.cloud.database()
       const posts = db.collection('posts')
       e.detail.value.date = db.serverDate()
+      e.detail.value.formid = e.detail.formId
       posts.add({
         data: e.detail.value,
         success(res) {
