@@ -36,6 +36,7 @@ Page({
       }, 3000);
     }
     else{
+      console.log("成功提交")
       const db = wx.cloud.database()
       const posts = db.collection('posts')
       e.detail.value.date = db.serverDate()
@@ -52,6 +53,10 @@ Page({
       wx.cloud.callFunction({
         name: 'sendornot',
         data:e,
+        success(res) {
+          console.log("成功进入程序");
+        },
+        fail:console.error
       })
     }
   },
