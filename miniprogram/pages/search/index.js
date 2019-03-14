@@ -1,12 +1,55 @@
 // pages/search/index.js
+var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    tabs: ["Lost", "Found", "Search"],
+    lostList: [],
+    foundList: [],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
   },
+
+  getLostList: function () {
+    console.log("get lost data")
+    var self = this
+    wx.cloud.callFunction({
+      name: "stream",
+      data: {
+        searchKeyword: "lost",
+        rescount: 20
+      },
+      success(res) {
+        console.log(res)
+        self.setData({
+          lostList: res.result.data
+        })
+      }
+    })
+  },
+
+  getFoundList: function () {
+    console.log("get found data")
+    var self = this
+    wx.cloud.callFunction({
+      name: "stream",
+      data: {
+        searchKeyword: "found",
+        rescount: 20
+      },
+      success(res) {
+        console.log(res)
+        self.setData({
+          foundList: res.result.data
+        })
+      }
+    })
+  },
+
   formSubmit: function (e) {
     if (e.detail.value.key != "") {
       wx.showToast({
@@ -34,8 +77,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    this.getLostList()
+    this.getFoundList()
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
+  },
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
   },
 
   /**
