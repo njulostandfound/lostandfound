@@ -1,9 +1,6 @@
 // pages/addLost/addLost.js
 var sliderWidth = 110; // 需要设置slider的宽度，用于计算中间位置
 Page({
-  data: {
-        files: []
-    },
   /**
    * 页面的初始数据
    */
@@ -16,7 +13,7 @@ Page({
       { name: 'Lost', value: '0', type: "lost", checked: true },
       { name: 'Found', value: '1', type: "found" }
     ],
-
+    files: []
   },
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value);

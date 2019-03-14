@@ -7,22 +7,10 @@
     </view>
     <view class="page__bd">
       <form bindsubmit="formSubmit" bindreset="formReset">
-        <view class="weui-cells__title">校园卡信息</view>
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">ID</view>
-              </view>
               <view class="weui-cell__bd">
-                  <input name="cardid" class="weui-input" placeholder="请输入校园卡号"/>
-              </view>
-          </view>
-          <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">主人</view>
-              </view>
-              <view class="weui-cell__bd">
-                  <input name="cardname" class="weui-input" placeholder="请输入校园卡主人"/>
+                  <input name="key" class="weui-input" placeholder="请输入校园卡号或物品名称"/>
               </view>
           </view>
         </view>

@@ -40,11 +40,9 @@ Page({
       const db = wx.cloud.database()
       const posts = db.collection('posts')
       e.detail.value.date = db.serverDate()
-<<<<<<< HEAD
       e.detail.value.title = "校园卡"
-=======
+      e.detail.value.atten = ""
       e.detail.value.formid = e.detail.formId
->>>>>>> 044ea78ea56954c21cc3c0cc1892b7a5763496eb
       posts.add({
         data: e.detail.value,
         success(res) {

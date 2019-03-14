@@ -17,6 +17,7 @@ Page({
 
   fetchSearchList: function () {
     console.log("get data")
+    console.log(this.data.searchKeyword)
     var self = this
     wx.cloud.callFunction({
       name:"stream",

@@ -8,39 +8,15 @@ Page({
 
   },
   formSubmit: function (e) {
-    if (!(e.detail.value.cardid == "" || e.detail.value.cardname == "")) {
+    if (e.detail.value.key != "") {
       wx.showToast({
         title: '跳转中',
         icon: 'loading',
         duration: 700
       })
       console.log('form发生了submit.search事件，携带数据为：', e.detail.value)
-      wx.cloud.callFunction({
-        // 云函数名称
-        name: 'search',
-        // 传给云函数的参数
-        data: e.detail.value,
-        success(res) { //返回查询结果postid
-          console.log(res)
-          if(res.result.data.length){//返回有效结果
-          //在这里可能要修改为搜索结果长页
-            wx.navigateTo({
-              url: '/pages/post/post?postid=' + res.result.data[0]._id
-            })
-          }
-          else{
-            wx.showModal({
-              content: '没有找到失物信息。',
-              showCancel: false,
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                }
-              }
-            })
-          }
-        },
-      fail: console.error
+      wx.navigateTo({
+        url: '/pages/stream/stream?key=' + e.detail.value.key
       })
     }
     else{

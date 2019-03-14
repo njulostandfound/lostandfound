@@ -9,6 +9,7 @@ exports.main = async (event, context) => {
   console.log("进入云函数stream")
   console.log(event)
   const db = cloud.database()
+  const _ = db.command
   const posts = db.collection('posts')
   try {
     if(event.searchKeyword == "all"){
@@ -18,7 +19,11 @@ exports.main = async (event, context) => {
       return await posts.where({ type: event.searchKeyword }).orderBy("date", "desc").limit(event.rescount).get()
     }
     else{
-      return await posts.where({ title: event.searchKeyword }).orderBy("date", "desc").limit(event.rescount).get()
+      return await posts.where(_.or(
+        { title: event.searchKeyword },
+        { cardid: event.searchKeyword},
+        { cardname: event.searchKeyword}
+        )).orderBy("date", "desc").limit(event.rescount).get()
     }
   } catch (e) {
     console.log(e)

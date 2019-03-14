@@ -5,13 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postname:"标题读取中",
+    title:"标题读取中",
     imgsrc:"card.png",
     cardid: "ID读取中",
     cardname: "主人读取中",
     location: "位置读取中",
     contact: "联系方式读取中",
-    msg:"备注信息读取中"
+    atten: "联系人读取中",
+    msg:"备注信息读取中",
+    type:"失物状态读取中"
   },
 
   /**
@@ -29,7 +31,7 @@ Page({
         success(res) {
           console.log(res.data)
           self.setData({
-            postname: "校园卡",
+            title: "校园卡",
             cardid: res.data[0].cardid,
             cardname: res.data[0].cardname,
             location: res.data[0].location,
@@ -53,12 +55,14 @@ Page({
           res = res.result
           console.log(res.data[0].cardid)
           self.setData({
-            postname: "校园卡",
+            title: res.data[0].title,
             cardid: res.data[0].cardid,
             cardname: res.data[0].cardname,
             location: res.data[0].location,
+            atten: res.data[0].atten,
             contact: res.data[0].contact,
-            msg: res.data[0].msg
+            msg: res.data[0].msg,
+            type: res.data[0].type
           })
         },
         fail: console.error
