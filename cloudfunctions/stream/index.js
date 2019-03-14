@@ -14,8 +14,11 @@ exports.main = async (event, context) => {
     if(event.searchKeyword == "all"){
       return await posts.orderBy("date", "desc").limit(event.rescount).get()
     }
+    else if (event.searchKeyword == "lost" || event.searchKeyword == "found" ){
+      return await posts.where({ type: event.searchKeyword }).orderBy("date", "desc").limit(event.rescount).get()
+    }
     else{
-      return await posts.where({title: event.searchKeyword}).orderBy("date", "desc").limit(event.rescount).get()
+      return await posts.where({ title: event.searchKeyword }).orderBy("date", "desc").limit(event.rescount).get()
     }
   } catch (e) {
     console.log(e)
