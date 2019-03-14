@@ -13,7 +13,7 @@ exports.main = async (event, context) => {
   try{
     return await posts.orderBy("date","desc").where({
       cardid: event.cardid,
-      cardname: event.cardname,
+      type: event.type
     }).get()
   }catch(e){
     console.log(e)

@@ -1,12 +1,18 @@
-  // pages/summit/index.js
+// pages/addLost/addLost.js
+var sliderWidth = 110; // 需要设置slider的宽度，用于计算中间位置
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
+    tabs: ["校园卡", "一般物品"],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0,
     radioItems: [
-      { name: 'Lost', value: '0', type: "lost" ,checked: true},
-      { name: 'Found', value: '1', type: "found"}
+      { name: 'Lost', value: '0', type: "lost", checked: true },
+      { name: 'Found', value: '1', type: "found" }
     ],
 
   },
@@ -25,7 +31,7 @@ Page({
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this;
-    if(e.detail.value.cardid==''||e.detail.value.cardname==''){
+    if (e.detail.value.cardid == '' || e.detail.value.cardname == '') {
       this.setData({
         showTopTips: true
       });
@@ -35,42 +41,42 @@ Page({
         });
       }, 3000);
     }
-    else{
-      console.log("成功提交")
+    else {
       const db = wx.cloud.database()
       const posts = db.collection('posts')
       e.detail.value.date = db.serverDate()
-<<<<<<< HEAD
-      e.detail.value.title = "校园卡"
-=======
       e.detail.value.formid = e.detail.formId
->>>>>>> 044ea78ea56954c21cc3c0cc1892b7a5763496eb
       posts.add({
         data: e.detail.value,
         success(res) {
           console.log(res)
           wx.navigateTo({
-            url: 'msg_success?postid='+res._id
+            url: 'msg_success?postid=' + res._id
           })
         }
-      }),
-      wx.cloud.callFunction({
-        name: 'sendornot',
-        data:e,
-        success(res) {
-          console.log("成功进入程序");
-        },
-        fail:console.error
       })
     }
-  },
-  /**
+  }, 
+    /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+        });
+      }
+    });
   },
-
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
