@@ -22,36 +22,48 @@
               <view class="weui-cells__title">校园卡信息</view>
               <view class="weui-cells weui-cells_after-title">
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">ID</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="cardid" class="weui-input" placeholder="请输入校园卡号"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">主人</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="cardname" class="weui-input" placeholder="请输入校园卡主人"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">失物地点</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="location" class="weui-input" placeholder="请输入丢失或找到的位置"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">联系方式</view>
                   </view>
+                  
                   <view class="weui-cell__bd">
                     <input name="contact" class="weui-input" placeholder="请输入联系方式"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
                   <view class="weui-cell__hd">
