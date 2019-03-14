@@ -30,7 +30,7 @@ Page({
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this;
-    if (e.detail.value.cardid == '' || e.detail.value.cardname == '') {
+    if (e.detail.value.cardid == '' || e.detail.value.cardname == '' || e.detail.value.contact == '') {
       this.setData({
         showTopTips: true
       });
@@ -44,6 +44,8 @@ Page({
       const db = wx.cloud.database()
       const posts = db.collection('posts')
       e.detail.value.date = db.serverDate()
+      e.detail.value.title = '校园卡'
+      e.detail.value.atten = ''
       e.detail.value.formid = e.detail.formId
       posts.add({
         data: e.detail.value,
@@ -57,8 +59,36 @@ Page({
     }
   }, 
   formSubmit2: function (e) {
-    console.log('hhh')
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log('form发生了submit2事件，携带数据为：', e.detail.value)
+    var that = this;
+    if (e.detail.value.title == '' || e.detail.value.location == '' || e.detail.value.contact == '') {
+      this.setData({
+        showTopTips: true
+      });
+      setTimeout(function () {
+        that.setData({
+          showTopTips: false
+        });
+      }, 3000);
+    }
+    else {
+      const db = wx.cloud.database()
+      const posts = db.collection('posts')
+      e.detail.value.date = db.serverDate()
+      e.detail.value.cardid = ''
+      e.detail.value.cardname = ''
+      e.detail.value.formid = e.detail.formId
+      posts.add({
+        data: e.detail.value,
+        success(res) {
+          console.log(res)
+          wx.navigateTo({
+            url: 'msg_success?postid=' + res._id
+          })
+        }
+      })
+    }
+
   }, 
     /**
    * 生命周期函数--监听页面加载
