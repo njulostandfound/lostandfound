@@ -14,9 +14,9 @@
             </view>
             <view class="weui-tab__panel">
                 <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-                      <view class="page__title">发布信息</view>
-                      <view class="page__desc">此处发布校园卡失物招领噢~</view>
                       <view class="page__bd">
+                      <view class="page__title" style='padding-left: 15px'>发布信息</view>
+                      <view class="page__desc" style='padding-left: 15px'>此处发布校园卡失物招领噢~</view>
                           <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">ID或主人不能为空~</view>
                           <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
                               <view class="weui-cells__title">校园卡信息</view>
@@ -81,8 +81,8 @@
                       </view>
                 </view>
                 <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-                    <view class="page__title">发布信息</view>
-                      <view class="page__desc">此处发布一般物品失物招领噢~</view>
+                    <view class="page__title" style='padding-left: 15px'>发布信息</view>
+                      <view class="page__desc" style='padding-left: 15px'>此处发布一般物品失物招领噢~</view>
                       <view class="page__hd">
     </view>
     <view class="page__bd">
