@@ -168,6 +168,16 @@ Page({
         that.setData({
           files: that.data.files.concat(res.tempFilePaths)
         });
+        wx.cloud.uploadFile({
+          cloudPath: 'example2.png',
+          filePath: that.data.files[0],
+          success: res => {
+            console.log(res.fileID)
+          },
+          fail: err => {
+            console.log(err)
+          }
+        })
       }
     })
   },
