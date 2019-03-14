@@ -22,18 +22,14 @@
       "text": "主页",
       "iconPath": "pages/home80.png",
       "selectedIconPath": "pages/home80.png"
-    },{
-      "pagePath": "pages/submit/index",
-      "text": "发布",
-      "iconPath": "pages/plus80.png",
-      "selectedIconPath": "pages/plus80.png"
     },
     {
       "pagePath": "pages/addLost/addLost",
       "text": "添加",
       "iconPath": "pages/plus80.png",
       "selectedIconPath": "pages/plus80.png"
-    },{
+    },
+    {
       "pagePath": "pages/index/index",
       "text": "我的",
       "iconPath": "pages/user80.png",
