@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/mine",
+    "pages/index/related",
     "pages/search/index",
     "pages/stream/stream",
     "pages/submit/index",

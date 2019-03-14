@@ -1,0 +1,47 @@
+<view class="page">
+  <view class="page__hd">
+      <view class="page__title">与我相关</view>
+      <view class="page__desc">收藏和提醒都在这了~</view>
+  </view>
+  <view class="search-result"> 
+    <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower"> 
+      <view class="result-item" wx:for="{{searchPostList}}" wx:key="_id"  data-data="{{item}}" >
+        <view class="weui-form-preview">
+          <view class="weui-form-preview__hd">
+              <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">失物名称</view>
+                  <view class="weui-form-preview__value_in-hd">{{item.title}}</view>
+              </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item" wx:if="{{item.cardid != ''}}">
+                <view class="weui-form-preview__label">校园卡ID</view>
+                <view class="weui-form-preview__value">{{item.cardid}}</view>
+            </view>
+            <view class="weui-form-preview__item" wx:if="{{item.cardid != ''}}">
+                <view class="weui-form-preview__label">校园卡主人</view>
+                <view class="weui-form-preview__value">{{item.cardname}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">失物地点</view>
+                <view class="weui-form-preview__value">{{item.location}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">联系方式</view>
+                <view class="weui-form-preview__value">{{item.contact}}</view>
+            </view>
+            <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">备注信息</view>
+                <view class="weui-form-preview__value">{{item.msg}}</view>
+            </view>
+          </view>
+          <view class="weui-form-preview__ft">
+            <navigator url="/pages/post/post?postid={{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查看失物信息</navigator>
+          </view>
+        </view> 
+      </view>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view> 
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view> 
+    </scroll-view>   
+  </view>
+</view>

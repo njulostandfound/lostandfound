@@ -8,12 +8,30 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   console.log("进入云函数stream")
   console.log(event)
+  const oid = wxContext.OPENID
   const db = cloud.database()
   const _ = db.command
   const posts = db.collection('posts')
+  const fa = db.collection('favorite')
   try {
     if(event.searchKeyword == "all"){
       return await posts.orderBy("date", "desc").limit(event.rescount).get()
+    }
+    else if (event.searchKeyword == "related"){
+      var res = await fa.where({ _openid: oid}).orderBy("date", "desc").limit(event.rescount).get({
+        success(res){
+          console.log("re suc")
+          console.log(res)
+        }
+      });
+      console.log(res)
+      return res
+      //return await posts.orderBy("date", "desc").limit(event.rescount).get();
+    }
+    else if(event.searchKeyword == "mine"){
+      return await posts.where({
+        _openid: oid
+      }).orderBy("date", "desc").limit(event.rescount).get()
     }
     else if (event.searchKeyword == "lost" || event.searchKeyword == "found" ){
       return await posts.where({ type: event.searchKeyword }).orderBy("date", "desc").limit(event.rescount).get()

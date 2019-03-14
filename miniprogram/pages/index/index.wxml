@@ -13,26 +13,32 @@
     </view>
   </view>
 
+<view class="weui-panel">
+  <view class="weui-panel__hd">发布信息管理</view>
+  <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+              <navigator url="mine" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                  <view class="weui-cell__hd"><image src="pen.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                  <view class="weui-cell__bd weui-cell_primary">
+                      <view>我的发布</view>
+                  </view>
+                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </navigator>
+              <navigator url="related" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                  <view class="weui-cell__hd"><image src="bell.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                  <view class="weui-cell__bd weui-cell_primary">
+                      <view>与我有关</view>
+                  </view>
+                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </navigator>
+          </view>
+      </view>
+  </view>
+</view>
+
 
 <view class="container">
-  <view class="uploader">
-    <navigator url="../submit/index" open-type="switchTab" class="uploader-text">
-      <text>发布信息</text>
-    </navigator>
-  </view>
-
-  <view class="uploader">
-    <navigator url="../search/index" open-type="switchTab" class="uploader-text">
-      <text>查找信息</text>
-    </navigator>
-  </view>
-
-  <view class="uploader">
-    <navigator url="../post/post?postid=-1" open-type="navigate" class="uploader-text">
-      <text>最新post</text>
-    </navigator>
-  </view>
-
   <view class="uploader">
     <navigator url="../stream/stream?key=all" open-type="navigate" class="uploader-text">
       <text>所有物品搜索结果</text>

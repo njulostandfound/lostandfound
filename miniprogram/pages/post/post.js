@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    postid: "",
     title:"标题读取中",
     imgsrc:"card.png",
     cardid: "ID读取中",
@@ -16,32 +17,25 @@ Page({
     type:"失物状态读取中"
   },
 
+favor: function(){
+  const db = wx.cloud.database()
+  const fav = db.collection('favorite')
+  fav.add({
+    data: { postid: this.data.postid, date: db.serverDate()},
+    success(res){
+      console.log(res)
+      wx.showToast({
+        title: '收藏成功！',
+        icon: 'success'
+      })
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.postid == -1){
-      console.log('展示最新的记录')
-      const db = wx.cloud.database()
-      const posts = db.collection('posts')
-      const _ = db.command
-      var self = this
-      posts.orderBy("date","desc").limit(5)
-        .get({
-        success(res) {
-          console.log(res.data)
-          self.setData({
-            title: "校园卡",
-            cardid: res.data[0].cardid,
-            cardname: res.data[0].cardname,
-            location: res.data[0].location,
-            contact: res.data[0].contact,
-            msg: res.data[0].msg
-          })
-        }
-      })
-    }
-    else{
+      this.setData({postid: options.postid})
       console.log('展示记录id:', options.postid)
       var self = this
       wx.cloud.callFunction({
@@ -67,7 +61,6 @@ Page({
         },
         fail: console.error
       })
-    }
  
   },
 
