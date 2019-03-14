@@ -13,8 +13,10 @@ Page({
     location: "位置读取中",
     contact: "联系方式读取中",
     atten: "联系人读取中",
-    msg:"备注信息读取中",
-    type:"失物状态读取中"
+    msg: "备注信息读取中",
+    type: "失物状态读取中",
+    filePath: "",
+    numOfImages: 0,
   },
 
 favor: function(){
@@ -47,9 +49,9 @@ favor: function(){
           console.log("查询成功")
           console.log(res)
           res = res.result
-          console.log(res.data[0].cardid)
           self.setData({
             title: res.data[0].title,
+            imgsrc: res.data[0].imgsrc === 'undefined' ? 'card.png' : res.data[0].imgsrc,
             cardid: res.data[0].cardid,
             cardname: res.data[0].cardname,
             location: res.data[0].location,

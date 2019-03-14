@@ -1,5 +1,12 @@
 // pages/addLost/addLost.js
 var util = require('../../utils.js');
+Array.prototype.clone = function () {
+  var a = [];
+  for (var i = 0; i < this.length; i++) {
+    a.push(this[i]);
+  }
+  return a;
+};
 
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
@@ -80,17 +87,50 @@ Page({
       e.detail.value.cardid = ''
       e.detail.value.cardname = ''
       e.detail.value.formid = e.detail.formId
+
+      //上传图片
+      const time = String(util.formatTime(new Date)).replace(/\s?-?:?/g, '');
+      const cloudPathPrefix = time + 'image';
+      const absoluteCloudPathPrefix = 'cloud://lostandfound-ad2f70.6c6f-lostandfound-ad2f70-1258793279/';
+      console.log(time);
+      for (var i = 0; i < that.data.files.length; i ++) {
+        wx.cloud.uploadFile({
+          cloudPath: cloudPathPrefix + i + '.png',
+          filePath: that.data.files[i],
+          success: res => {
+            console.log(res.fileID)
+          },
+          fail: err => {
+            console.log(err)
+          }
+        })
+      }
+
       posts.add({
-        data: e.detail.value,
+        data: {
+          title: e.detail.value.title,
+          imgsrc: absoluteCloudPathPrefix + cloudPathPrefix + '0.png',
+          cardid: e.detail.value.cardid,
+          cardname: e.detail.value.cardname,
+          location: e.detail.value.location,
+          contact: e.detail.value.contact,
+          atten: e.detail.value.atten,
+          msg: e.detail.value.msg,
+          type: e.detail.value.type,
+          filePath: cloudPathPrefix,
+          numOfImages: that.data.files.length
+        },
         success(res) {
           console.log(res)
           wx.navigateTo({
-            url: 'msg_success?postid=' + res._id
+            url: 'msg_success?postid=' + res._id,
           })
+        },
+        fail(err) {
+          console.log(err)
         }
       })
     }
-
   }, 
     /**
    * 生命周期函数--监听页面加载
@@ -170,6 +210,18 @@ Page({
         that.setData({
           files: that.data.files.concat(res.tempFilePaths)
         });
+      }
+    })
+  },
+  previewImage: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.files // 需要预览的图片http链接列表
+    })
+  }
+})
+
+/*
         const time = String(util.formatTime(new Date)).replace(/\s?-?:?/g, '');
         console.log(time);
         for(var i = 0; i < that.data.files.length; i ++){
@@ -184,13 +236,4 @@ Page({
             }
           })
         }
-      }
-    })
-  },
-  previewImage: function (e) {
-    wx.previewImage({
-      current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files // 需要预览的图片http链接列表
-    })
-  }
-})
+*/
