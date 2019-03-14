@@ -114,7 +114,7 @@
     </view>
                       <view class="page__bd">
                           <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">名称或地点不能为空~</view>
-                          <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+                          <form bindsubmit="formSubmit2" report-submit="true" bindreset="formReset">
                               <view class="weui-cells weui-cells_after-title">
                                   <view class="weui-cell weui-cell_input">
                                       <view class="weui-cell__hd">
@@ -169,10 +169,10 @@
                                         </label>
                                       </radio-group>
                                   </view>
-                          </form>
                              <view class="weui-btn-area">
                                  <button class="weui-btn" type="primary" formType='submit'>发布失物或招领信息</button>
                              </view>
+                          </form>
                       </view>
                 </view>
             </view>
