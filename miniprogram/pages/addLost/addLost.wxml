@@ -93,7 +93,7 @@
                     <view class="weui-uploader">
                         <view class="weui-uploader__hd">
                             <view class="weui-uploader__title">失物图片</view>
-                            <view class="weui-uploader__info">{{files.length}}/2</view>
+                            <view class="weui-uploader__info">{{files.length}}/5</view>
                         </view>
                         <view class="weui-uploader__bd">
                             <view class="weui-uploader__files" id="uploaderFiles">
@@ -103,7 +103,7 @@
                                     </view>
                                 </block>
                             </view>
-                            <view class="weui-uploader__input-box">
+                            <view class="weui-uploader__input-box" wx:if="{{files.length<5}}">
                                 <view class="weui-uploader__input" bindtap="chooseImage"></view>
                             </view>
                         </view>
@@ -121,7 +121,7 @@
                                           <view class="weui-label">失物名称</view>
                                       </view>
                                       <view class="weui-cell__bd">
-                                          <input name="cardid" class="weui-input" placeholder="请输入失物的名称"/>
+                                          <input name="title" class="weui-input" placeholder="请输入失物的名称"/>
                                       </view>
                                   </view>
                                   <view class="weui-cell weui-cell_input">
