@@ -86,12 +86,13 @@
                       <view class="page__hd">
     </view>
     <view class="page__bd">
+      <view class="weui-cells__title">一般物品信息</view>
         <view class="weui-cells">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
                     <view class="weui-uploader">
                         <view class="weui-uploader__hd">
-                            <view class="weui-uploader__title">图片上传</view>
+                            <view class="weui-uploader__title">失物图片</view>
                             <view class="weui-uploader__info">{{files.length}}/2</view>
                         </view>
                         <view class="weui-uploader__bd">
@@ -114,7 +115,6 @@
                       <view class="page__bd">
                           <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">名称或地点不能为空~</view>
                           <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
-                              <view class="weui-cells__title">一般物品信息</view>
                               <view class="weui-cells weui-cells_after-title">
                                   <view class="weui-cell weui-cell_input">
                                       <view class="weui-cell__hd">
