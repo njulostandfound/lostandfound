@@ -1,4 +1,6 @@
 // pages/addLost/addLost.js
+var util = require('../../utils.js');
+
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
   /**
@@ -168,16 +170,20 @@ Page({
         that.setData({
           files: that.data.files.concat(res.tempFilePaths)
         });
-        wx.cloud.uploadFile({
-          cloudPath: 'example2.png',
-          filePath: that.data.files[0],
-          success: res => {
-            console.log(res.fileID)
-          },
-          fail: err => {
-            console.log(err)
-          }
-        })
+        const time = String(util.formatTime(new Date)).replace(/\s?-?:?/g, '');
+        console.log(time);
+        for(var i = 0; i < that.data.files.length; i ++){
+          wx.cloud.uploadFile({
+            cloudPath: time+'image'+i+'.png',
+            filePath: that.data.files[i],
+            success: res => {
+              console.log(res.fileID)
+            },
+            fail: err => {
+              console.log(err)
+            }
+          })
+        }
       }
     })
   },
