@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/search/index",
+    "pages/stream/stream",
     "pages/submit/index",
     "pages/submit/msg_success",
     "pages/post/post"
