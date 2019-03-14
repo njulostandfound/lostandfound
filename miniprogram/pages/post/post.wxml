@@ -11,30 +11,37 @@
         </view>
       </view>
       <view class="weui-cells weui-cells_after-title">
+
         <view class="weui-cell" wx:if="{{cardid != ''}}">
             <view class="weui-cell__bd">校园卡ID</view>
             <view class="weui-cell__ft">{{cardid}}</view>
         </view>
+
         <view class="weui-cell" wx:if="{{cardname != ''}}">
             <view class="weui-cell__bd">校园卡主人</view>
             <view class="weui-cell__ft">{{cardname}}</view>
         </view>
+
         <view class="weui-cell">
             <view class="weui-cell__bd">失物地点</view>
             <view class="weui-cell__ft">{{location}}</view>
         </view>
+
         <view class="weui-cell" wx:if="{{atten != ''}}">
             <view class="weui-cell__bd">联系人</view>
             <view class="weui-cell__ft">{{atten}}</view>
         </view>
+
         <view class="weui-cell">
             <view class="weui-cell__bd">联系方式</view>
             <view class="weui-cell__ft">{{contact}}</view>
         </view>
+
         <view class="weui-cell">
             <view class="weui-cell__bd">备注</view>
             <view class="weui-cell__ft">{{msg}}</view>
         </view>
+        
         <view class="weui-cell">
             <view class="weui-cell__bd">失物状态</view>
             <view class="weui-cell__ft" wx:if="{{type == 'lost'}}">丢失寻物</view>

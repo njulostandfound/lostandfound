@@ -1,74 +1,78 @@
 <!--pages/summit/index.wxml-->
 <view class="page">
-    <view class="page__hd">
-        <view class="page__title">发布信息</view>
-        <view class="page__desc">目前只支持校园卡失物招领噢~</view>
-    </view>
-    <view class="page__bd">
+  <view class="page__hd">
+    <view class="page__title">发布信息</view>
+    <view class="page__desc">目前只支持校园卡失物招领噢~</view>
+  </view>
+  <view class="page__bd">
     <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">ID或主人不能为空~</view>
-      <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
-        <view class="weui-cells__title">校园卡信息</view>
-        <view class="weui-cells weui-cells_after-title">
-          <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">ID</view>
-              </view>
-              <view class="weui-cell__bd">
-                  <input name="cardid" class="weui-input" placeholder="请输入校园卡号"/>
-              </view>
-          </view>
-          <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">主人</view>
-              </view>
-              <view class="weui-cell__bd">
-                  <input name="cardname" class="weui-input" placeholder="请输入校园卡主人"/>
-              </view>
-          </view>
-          <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">失物地点</view>
-              </view>
-              <view class="weui-cell__bd">
-                  <input name="location" class="weui-input" placeholder="请输入丢失或找到的位置"/>
-              </view>
-          </view>
+    <form bindsubmit="formSubmit" report-submit="true" bindreset="formReset">
+      <view class="weui-cells__title">校园卡信息</view>
+      <view class="weui-cells weui-cells_after-title">
+
         <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">联系方式</view>
-              </view>
-              <view class="weui-cell__bd">
-                  <input name="contact" class="weui-input" placeholder="请输入联系方式"/>
-              </view>
+          <view class="weui-cell__hd">
+            <view class="weui-label">ID</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="cardid" class="weui-input" placeholder="请输入校园卡号"/>
+          </view>
         </view>
+
         <view class="weui-cell weui-cell_input">
-              <view class="weui-cell__hd">
-                  <view class="weui-label">备注</view>
-              </view>
-              <view class="weui-cell__bd">
-                  <input name="msg" class="weui-input" placeholder="请输入其它的信息"/>
-              </view>
+          <view class="weui-cell__hd">
+            <view class="weui-label">主人</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="cardname" class="weui-input" placeholder="请输入校园卡主人"/>
+          </view>
         </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">失物地点</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="location" class="weui-input" placeholder="请输入丢失或找到的位置"/>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">联系方式</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="contact" class="weui-input" placeholder="请输入联系方式"/>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">备注</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="msg" class="weui-input" placeholder="请输入其它的信息"/>
+          </view>
+        </view>
+
       </view>
-        
-        
-        <view class="weui-cells__title">发布类型</view>
-        <view class="weui-cells weui-cells_after-title">
-            <radio-group name="type" bindchange="radioChange">
-                <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
-                    <radio class="weui-check" value="{{item.type}}" checked="{{item.checked}}"/>
+      <view class="weui-cells__title">发布类型</view>
+      <view class="weui-cells weui-cells_after-title">
+        <radio-group name="type" bindchange="radioChange">
+          <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+            <radio class="weui-check" value="{{item.type}}" checked="{{item.checked}}"/>
 
-                    <view class="weui-cell__bd">{{item.name}}</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
-                        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
-                    </view>
-                </label>
-            </radio-group>
-        </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+              <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+            </view>
+          </label>
+        </radio-group>
+      </view>
 
-        <view class="weui-btn-area">
-          <button class="weui-btn" type="primary" formType='submit'>发布失物或招领信息</button>
-        </view>
-      </form>
-</view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" formType='submit'>发布失物或招领信息</button>
+      </view>
+    </form>
+  </view>
 </view>
