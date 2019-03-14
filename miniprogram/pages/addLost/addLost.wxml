@@ -91,10 +91,12 @@
               <view class="weui-cell">
                 <view class="weui-cell__bd">
                   <view class="weui-uploader">
+
                     <view class="weui-uploader__hd">
                       <view class="weui-uploader__title">失物图片</view>
                       <view class="weui-uploader__info">{{files.length}}/5</view>
                     </view>
+                  
                     <view class="weui-uploader__bd">
                       <view class="weui-uploader__files" id="uploaderFiles">
                         <block wx:for="{{files}}" wx:key="*this">
@@ -103,6 +105,7 @@
                           </view>
                         </block>
                       </view>
+                  
                       <view class="weui-uploader__input-box" wx:if="{{files.length<5}}">
                         <view class="weui-uploader__input" bindtap="chooseImage"></view>
                       </view>
@@ -117,44 +120,59 @@
             <form bindsubmit="formSubmit2" report-submit="true" bindreset="formReset">
               <view class="weui-cells weui-cells_after-title">
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">失物名称</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="title" class="weui-input" placeholder="请输入失物的名称"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">失物地点</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="cardname" class="weui-input" placeholder="请输入丢失或找到的位置"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">联系人</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="location" class="weui-input" placeholder="请输入联系人姓名"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">联系方式</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="contact" class="weui-input" placeholder="请输入联系方式"/>
                   </view>
+                
                 </view>
                 <view class="weui-cell weui-cell_input">
+                
                   <view class="weui-cell__hd">
                     <view class="weui-label">备注</view>
                   </view>
+                
                   <view class="weui-cell__bd">
                     <input name="msg" class="weui-input" placeholder="请输入其它的信息"/>
                   </view>
+                
                 </view>
               </view>
               <view class="weui-cells__title">发布类型</view>
