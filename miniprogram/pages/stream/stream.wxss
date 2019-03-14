@@ -1,1 +1,4 @@
 /* pages/stream/stream.wxss */
+.weui-form-preview{
+    margin-bottom: 25px;
+}

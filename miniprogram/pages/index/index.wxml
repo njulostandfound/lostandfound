@@ -35,7 +35,7 @@
   </view>
 
   <view class="uploader">
-    <navigator url="../stream/stream" open-type="navigate" class="uploader-text">
+    <navigator url="../stream/stream?key=all" open-type="navigate" class="uploader-text">
       <text>所有物品搜索结果</text>
     </navigator>
   </view>
