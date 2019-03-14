@@ -13,8 +13,8 @@
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <view class="search-result">
-            <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+
+            <!--<scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">-->
               <view class="result-item" wx:for="{{lostList}}" wx:key="_id"  data-data="{{item}}" >
                 <view class="weui-form-preview">
                   <view class="weui-form-preview__hd">
@@ -52,12 +52,12 @@
               </view>
               <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
               <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
-            </scroll-view>
-          </view>
+           <!-- </scroll-view> -->
+
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class="search-result">
-            <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">
+
+            <!-- <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower"> -->
               <view class="result-item" wx:for="{{foundList}}" wx:key="_id"  data-data="{{item}}" >
                 <view class="weui-form-preview">
                   <view class="weui-form-preview__hd">
@@ -103,8 +103,8 @@
               </view>
               <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
               <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
-            </scroll-view>
-          </view>
+           <!-- </scroll-view> -->
+
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
           <view class="page">

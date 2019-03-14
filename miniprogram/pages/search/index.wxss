@@ -2,3 +2,9 @@
 .weui-form-preview{
     margin-bottom: 25px;
 }
+.weui-tab__content{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
