@@ -6,6 +6,8 @@
   </view>
   <view class="search-result"> 
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower"> 
+    <view class="weui_article__h1" wx:if="{{searchPostList.length==0&&isLoaded==false}}" style='text-align: center; color:#c0c0c0'>Loading records...</view>
+        <view class="weui_article__h1" wx:if="{{searchPostList.length==0&&isLoaded==true}}" style='text-align: center; color:#c0c0c0'>No records...</view>
       <view class="result-item" wx:for="{{searchPostList}}" wx:key="_id"  data-data="{{item}}" >
         <view class="weui-form-preview">
           <view class="weui-form-preview__hd">

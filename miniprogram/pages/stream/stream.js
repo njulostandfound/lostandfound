@@ -12,7 +12,8 @@ Page({
     searchPageNum: 20, 
     rescount: 15,
     searchLoading: false,
-    searchLoadingComplete: false
+    searchLoadingComplete: false,
+    isLoaded:false
   },
 
   fetchSearchList: function () {
@@ -28,7 +29,8 @@ Page({
       success(res){
         console.log(res)
         self.setData({
-          searchPostList: res.result.data
+          searchPostList: res.result.data,
+          isLoaded: true
         })
       }
     })

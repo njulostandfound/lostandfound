@@ -26,11 +26,12 @@ Page({
       success(res) {
         console.log(res)
         self.setData({
-          searchPostList: res.result.data
+          searchPostList: res.result.data,
+          isLoaded:true
         })
       }
     })
-    
+
   },
 
   searchScrollLower: function () {

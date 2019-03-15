@@ -13,7 +13,8 @@
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-
+    <view class="weui_article__h1" wx:if="{{lostList.length==0&&isLoaded==false}}" style='text-align: center; color:#c0c0c0'>Loading records...</view>
+        <view class="weui_article__h1" wx:if="{{lostList.length==0&&isLoaded==true}}" style='text-align: center; color:#c0c0c0'>No records...</view>
             <!--<scroll-view scroll-y="true" bindscrolltolower="searchScrollLower">-->
               <view class="result-item" wx:for="{{lostList}}" wx:key="_id"  data-data="{{item}}" >
                 <view class="weui-form-preview">
@@ -56,7 +57,8 @@
 
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-
+    <view class="weui_article__h1" wx:if="{{foundList.length==0&&isLoaded==false}}" style='text-align: center; color:#c0c0c0'>Loading records...</view>
+        <view class="weui_article__h1" wx:if="{{foundList.length==0&&isLoaded==true}}" style='text-align: center; color:#c0c0c0'>No records...</view>
             <!-- <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower"> -->
               <view class="result-item" wx:for="{{foundList}}" wx:key="_id"  data-data="{{item}}" >
                 <view class="weui-form-preview">

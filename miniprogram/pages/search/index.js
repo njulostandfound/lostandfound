@@ -12,6 +12,7 @@ Page({
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
+    isLoaded:false
   },
 
   getLostList: function () {
@@ -26,7 +27,8 @@ Page({
       success(res) {
         console.log(res)
         self.setData({
-          lostList: res.result.data
+          lostList: res.result.data,
+          isLoaded:true
         })
       }
     })
@@ -35,6 +37,7 @@ Page({
   getFoundList: function () {
     console.log("get found data")
     var self = this
+    self.isLoaded=false
     wx.cloud.callFunction({
       name: "stream",
       data: {
@@ -44,7 +47,8 @@ Page({
       success(res) {
         console.log(res)
         self.setData({
-          foundList: res.result.data
+          foundList: res.result.data,
+          isLoaded:true
         })
       }
     })
