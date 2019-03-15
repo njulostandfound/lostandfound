@@ -41,18 +41,14 @@ Page({
             console.log(re)
             console.log(i)
             console.log(count)
-            tmp[count] = re.result.data[0]
-            count += 1
-            console.log(tmp)
+            var tmp = self.data.searchPostList
+            tmp[tmp.length] = re.result.data[0]
+            self.setData({
+              searchPostList: tmp
+            })
           }
         })
       }
-    }).then(res => {
-      console.log("done")
-      console.log(tmp)
-      self.setData({
-        searchPostList: tmp
-      })
     })
 
   },
