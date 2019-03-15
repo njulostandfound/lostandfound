@@ -9,7 +9,8 @@ Page({
     isFromSearch: true,
     rescount: 20,
     searchLoading: false,
-    searchLoadingComplete: false
+    searchLoadingComplete: false,
+    isLoaded: false
   },
 
   fetchSearchList: function () {
@@ -44,7 +45,8 @@ Page({
             var tmp = self.data.searchPostList
             tmp[tmp.length] = re.result.data[0]
             self.setData({
-              searchPostList: tmp
+              searchPostList: tmp,
+              isLoaded: true
             })
           }
         })
