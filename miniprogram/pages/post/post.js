@@ -16,7 +16,7 @@ Page({
     msg: "备注信息读取中",
     type: "失物状态读取中",
     filePath: "",
-    numOfImages: 0,
+    numOfImages: 0
   },
 
 favor: function(){
@@ -64,7 +64,6 @@ favor: function(){
         },
         fail: console.error
       })
- 
   },
   preview:function(){
     var that = this;
@@ -77,7 +76,6 @@ favor: function(){
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
