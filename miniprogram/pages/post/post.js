@@ -17,20 +17,72 @@ Page({
     msg: "备注信息读取中",
     type: "失物状态读取中",
     filePath: "",
-    numOfImages: 1
+    numOfImages: 1,
+    isFavored: false,
+    disabled: false
   },
 
 favor: function(){
+  console.log("get in favor")
   const db = wx.cloud.database()
   const fav = db.collection('favorite')
+  var self = this
+  self.setData({ disabled: true })
   fav.add({
     data: { postid: this.data.postid, date: db.serverDate()},
     success(res){
       console.log(res)
+
+      self.checkFavored()
       wx.showToast({
         title: '收藏成功！',
         icon: 'success'
       })
+    }
+  })
+},
+unfavor: function(){
+  console.log("get in unfavor")
+  var self = this
+  self.setData({ disabled: true })
+  wx.cloud.callFunction({
+    name:"unfavor",
+    data:{
+      postid: self.data.postid
+    },
+    success(res){
+      console.log(res)
+
+      self.checkFavored()
+      wx.showToast({
+        title: '取消收藏成功！',
+        icon: 'success'
+      })
+    }
+  })
+},
+checkFavored: function(){
+  console.log("get in checkFavored")
+  var self = this
+  wx.cloud.callFunction({
+    name:"favored",
+    data:{postid: self.data.postid},
+    success(res){
+      console.log(self.data.postid)
+      console.log(res)
+      if(res.result.data.length){
+        self.setData({
+          isFavored: true,
+          disabled: false
+        })
+      }
+      else{
+        self.setData({
+          isFavored: false,
+          disabled: false
+        })
+      }
+      console.log("favored:", self.data.isFavored)
     }
   })
 },
@@ -52,7 +104,7 @@ favor: function(){
           res = res.result
           console.log(res.data[0].imgsrc)
           self.setData({
-            openid: res.data[0].openid,
+            openid: res.data[0]._openid,
             title: res.data[0].title,
             imgsrc: res.data[0].imgsrc,
             cardid: res.data[0].cardid,
@@ -63,6 +115,7 @@ favor: function(){
             msg: res.data[0].msg,
             type: res.data[0].type
           })
+          self.checkFavored()
         },
         fail: console.error
       })
