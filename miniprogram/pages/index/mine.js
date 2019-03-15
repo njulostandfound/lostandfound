@@ -14,9 +14,7 @@ Page({
   },
 
   fetchSearchList: function () {
-    wx.showLoading({
-      title: 'Loading',
-    })
+
     console.log("get data")
     var self = this
     wx.cloud.callFunction({
@@ -32,7 +30,7 @@ Page({
         })
       }
     })
-    wx.hideLoading()
+    
   },
 
   searchScrollLower: function () {
