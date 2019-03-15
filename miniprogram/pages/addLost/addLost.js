@@ -87,6 +87,7 @@ Page({
       e.detail.value.cardid = ''
       e.detail.value.cardname = ''
       e.detail.value.formid = e.detail.formId
+      e.detail.value.imgsrc = []
 
       //上传图片
       const time = String(util.formatTime(new Date)).replace(/\s?-?:?/g, '');
@@ -106,10 +107,13 @@ Page({
         })
       }
 
+      for(var i=0;i<this.data.files.length;i+=1){
+        e.detail.value.imgsrc[i] = absoluteCloudPathPrefix + cloudPathPrefix + i +'.png'
+      }
       posts.add({
         data: {
           title: e.detail.value.title,
-          imgsrc: absoluteCloudPathPrefix + cloudPathPrefix + '0.png',
+          imgsrc: e.detail.value.imgsrc,//absoluteCloudPathPrefix + cloudPathPrefix + '0.png',
           cardid: e.detail.value.cardid,
           cardname: e.detail.value.cardname,
           location: e.detail.value.location,
