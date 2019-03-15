@@ -5,7 +5,7 @@
   </view>
   <view class="search-result"> 
     <scroll-view scroll-y="true" bindscrolltolower="searchScrollLower"> 
-      <view class="result-item" wx:for="{{searchPostList}}" wx:key="_id"  data-data="{{item}}" >
+      <view class="result-item" wx:for="{{searchPostList}}" wx:key="date"  data-data="{{item}}" >
         <view class="weui-form-preview">
           <view class="weui-form-preview__hd">
               <view class="weui-form-preview__item">

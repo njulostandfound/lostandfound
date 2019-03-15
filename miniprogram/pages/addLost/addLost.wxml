@@ -89,6 +89,7 @@
               </view>
               <view class="weui-btn-area">
                 <button class="weui-btn" type="primary" formType='submit'>发布</button>
+                <button class="weui-btn" type="default" formType='reset'>重置</button>
               </view>
             </form>
           </view>
@@ -195,6 +196,7 @@
               </view>
               <view class="weui-btn-area">
                 <button class="weui-btn" type="primary" formType='submit'>发布</button>
+                <button class="weui-btn" type="default" formType='reset'>重置</button>
               </view>
             </form>
           </view>

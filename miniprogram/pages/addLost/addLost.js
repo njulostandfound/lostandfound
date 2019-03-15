@@ -36,6 +36,12 @@ Page({
       radioItems: radioItems
     });
   },
+  formReset: function(){
+    console.log("form: reset!")
+    this.setData({
+      files:[]
+    })
+  },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this;
