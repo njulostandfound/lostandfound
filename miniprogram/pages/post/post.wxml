@@ -49,10 +49,11 @@
             <view class="weui-cell__ft" wx:else="{{type == 'done'}}">失物已找到</view>
         </view>
       </view>
-
+      <!--
       <view class="weui-btn-area">
         <button class="weui-btn" type="primary" bindtap='favor'>收藏</button>
       </view>
+      -->
 
     </view>
 </view>
