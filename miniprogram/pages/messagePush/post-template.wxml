@@ -1,0 +1,3 @@
+<template name="post-template0">
+  <text>hello world!</text>
+</template>
