@@ -54,7 +54,8 @@
       </view>
       
       <view class="weui-btn-area">
-        <button class="weui-btn" type="primary" bindtap='favor'>收藏</button>
+        <button class="weui-btn" type="warn" bindtap='unfavor' disabled="{{disabled}}" wx:if='{{isFavored}}' >取消收藏</button>
+        <button class="weui-btn" type="primary" bindtap='favor' disabled="{{disabled}}" wx:else>收藏</button>
       </view>
       
 
