@@ -6,6 +6,7 @@ Page({
    */
   data: {
     postid: "",
+    openid: "",
     title:"标题读取中",
     imgsrc: "",
     cardid: "ID读取中",
@@ -51,6 +52,7 @@ favor: function(){
           res = res.result
           console.log(res.data[0].imgsrc)
           self.setData({
+            openid: res.data[0].openid,
             title: res.data[0].title,
             imgsrc: res.data[0].imgsrc,
             cardid: res.data[0].cardid,

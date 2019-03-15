@@ -1,12 +1,5 @@
 // pages/addLost/addLost.js
-var util = require('../../utils.js');
-Array.prototype.clone = function () {
-  var a = [];
-  for (var i = 0; i < this.length; i++) {
-    a.push(this[i]);
-  }
-  return a;
-};
+const util = require('../../utils.js');
 
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
@@ -63,6 +56,7 @@ Page({
       e.detail.value.atten = ''
       e.detail.value.formid = e.detail.formId
       e.detail.value.imgsrc = ['card.png']
+
       posts.add({
         data: e.detail.value,
         success(res) {
@@ -119,8 +113,9 @@ Page({
       }
       posts.add({
         data: {
+          //openid: wx.openid,
           title: e.detail.value.title,
-          imgsrc: e.detail.value.imgsrc,//absoluteCloudPathPrefix + cloudPathPrefix + '0.png',
+          imgsrc: e.detail.value.imgsrc,
           cardid: e.detail.value.cardid,
           cardname: e.detail.value.cardname,
           location: e.detail.value.location,
