@@ -14,20 +14,47 @@ Page({
 
   fetchSearchList: function () {
     console.log("get data")
+    var ids = []
+    var tmp = []
     var self = this
     wx.cloud.callFunction({
       name: "stream",
       data: {
         searchKeyword: "related",
         rescount: self.data.rescount
-      },
-      success(res) {
-        console.log(res)
-        self.setData({
-          searchPostList: {}
+      }
+    }).then(res => {
+      console.log(res)
+      ids = res.result.data
+      var i
+      var count = 0
+      for (i in ids) {
+        console.log(i)
+        console.log(res.result.data[i].postid)
+        wx.cloud.callFunction({
+          name: "stream",
+          data: {
+            searchKeyword: res.result.data[i].postid,
+            rescount: 2
+          },
+          success(re) {
+            console.log(re)
+            console.log(i)
+            console.log(count)
+            tmp[count] = re.result.data[0]
+            count += 1
+            console.log(tmp)
+          }
         })
       }
+    }).then(res => {
+      console.log("done")
+      console.log(tmp)
+      self.setData({
+        searchPostList: tmp
+      })
     })
+
   },
 
   searchScrollLower: function () {

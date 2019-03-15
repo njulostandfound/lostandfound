@@ -18,15 +18,7 @@ exports.main = async (event, context) => {
       return await posts.orderBy("date", "desc").limit(event.rescount).get()
     }
     else if (event.searchKeyword == "related"){
-      var res = await fa.where({ _openid: oid}).orderBy("date", "desc").limit(event.rescount).get({
-        success(res){
-          console.log("re suc")
-          console.log(res)
-        }
-      });
-      console.log(res)
-      return res
-      //return await posts.orderBy("date", "desc").limit(event.rescount).get();
+      return await fa.where({ _openid: oid}).orderBy("date", "desc").limit(event.rescount).get();
     }
     else if(event.searchKeyword == "mine"){
       return await posts.where({
@@ -38,6 +30,7 @@ exports.main = async (event, context) => {
     }
     else{
       return await posts.where(_.or(
+        { _id: event.searchKeyword },
         { title: event.searchKeyword },
         { cardid: event.searchKeyword},
         { cardname: event.searchKeyword}
