@@ -16,7 +16,7 @@ Page({
     msg: "备注信息读取中",
     type: "失物状态读取中",
     filePath: "",
-    numOfImages: 0
+    numOfImages: 1
   },
 
 favor: function(){

@@ -6,8 +6,10 @@
     <view class="page__bd">
       <view class="weui_article">
         <view class="weui-article__p">
-          <image class="weui-article__img" src="{{imgsrc[0]}}" mode="aspectFit" style="height: 180px" bindtap='preview'/>
-          <!-- 可能需要用for循环展示图片-->
+          <view wx:for="{{imgsrc}}" wx:for-index="idx" wx:for-item="itemName">
+            <image class="weui-article__img" src="{{itemName}}" mode="aspectFit" style="height: 180px" bindtap='preview'/>
+            <!-- 可能需要用for循环展示图片-->
+          </view>
         </view>
       </view>
       <view class="weui-cells weui-cells_after-title">
