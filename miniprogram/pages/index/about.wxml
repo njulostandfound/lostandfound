@@ -1,0 +1,18 @@
+<!--pages/index/about.wxml-->
+<view class="page">
+  <view class="page__hd">
+      <view class="page__title">关于</view>
+      <view class="page__desc">这个小程序的相关信息~</view>
+  </view>
+  <view class="page_bd">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell__hd">
+        <view class="weui-article">
+            <view class="weui-article__p">
+              我们是balabla
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

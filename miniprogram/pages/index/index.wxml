@@ -32,6 +32,13 @@
                   </view>
                   <view class="weui-cell__ft weui-cell__ft_in-access"></view>
               </navigator>
+              <navigator url="about" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                  <view class="weui-cell__hd"><image src="group.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                  <view class="weui-cell__bd weui-cell_primary">
+                      <view>关于</view>
+                  </view>
+                  <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+              </navigator>
           </view>
       </view>
   </view>

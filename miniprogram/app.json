@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/index/mine",
     "pages/index/related",
+    "pages/index/about",
     "pages/search/index",
     "pages/stream/stream",
     "pages/submit/index",
