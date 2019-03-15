@@ -7,7 +7,7 @@ Page({
   data: {
     postid: "",
     title:"标题读取中",
-    imgsrc:"card.png",
+    imgsrc: "",
     cardid: "ID读取中",
     cardname: "主人读取中",
     location: "位置读取中",
@@ -49,9 +49,10 @@ favor: function(){
           console.log("查询成功")
           console.log(res)
           res = res.result
+          console.log(res.data[0].imgsrc)
           self.setData({
             title: res.data[0].title,
-            imgsrc: res.data[0].cardname != "" ? ['card.png'] : res.data[0].imgsrc,
+            imgsrc: res.data[0].imgsrc,
             cardid: res.data[0].cardid,
             cardname: res.data[0].cardname,
             location: res.data[0].location,
@@ -66,9 +67,10 @@ favor: function(){
  
   },
   preview:function(){
+    var that = this;
     wx.previewImage({
-      current: this.data.imgsrc[0], // 当前显示图片的http链接
-      urls: this.data.imgsrc // 需要预览的图片http链接列表
+      current: that.data.imgsrc, // 当前显示图片的http链接
+      urls: that.data.imgsrc // 需要预览的图片http链接列表
     })
   },
   /**

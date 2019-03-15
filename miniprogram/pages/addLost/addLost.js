@@ -56,6 +56,7 @@ Page({
       e.detail.value.title = '校园卡'
       e.detail.value.atten = ''
       e.detail.value.formid = e.detail.formId
+      e.detail.value.imgsrc = ['card.png']
       posts.add({
         data: e.detail.value,
         success(res) {
