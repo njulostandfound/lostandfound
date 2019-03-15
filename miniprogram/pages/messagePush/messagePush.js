@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    postid: "",
+    title: "无标题",
+    cardid: "无ID",
+    cardname: "无主人",
+    contact: "无联系方式",
+    atten: "无联系人",
   },
 
   /**

@@ -1,4 +1,1 @@
 <!--pages/messagePush/messagePush.wxml-->
-<import src="post-template.wxml" />
-
-<template is="post-template0"></template>
