@@ -9,10 +9,14 @@ Page({
     isFromSearch: true,
     rescount: 20,
     searchLoading: false,
-    searchLoadingComplete: false
+    searchLoadingComplete: false,
+    isLoaded:false
   },
 
   fetchSearchList: function () {
+    wx.showLoading({
+      title: 'Loading',
+    })
     console.log("get data")
     var self = this
     wx.cloud.callFunction({
@@ -28,6 +32,7 @@ Page({
         })
       }
     })
+    wx.hideLoading()
   },
 
   searchScrollLower: function () {
@@ -51,7 +56,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
