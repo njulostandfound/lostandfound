@@ -107,6 +107,7 @@ checkFavored: function(){
           openid: res.data[0]._openid,
           title: res.data[0].title,
           imgsrc: res.data[0].imgsrc,
+          numOfImages: res.data[0].imgsrc.length,
           cardid: res.data[0].cardid,
           cardname: res.data[0].cardname,
           location: res.data[0].location,
