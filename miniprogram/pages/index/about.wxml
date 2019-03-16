@@ -9,10 +9,10 @@
       <view class="weui-cell__hd">
         <view class="weui-article">
             <view class="weui-article__p">
-              队伍：“这也是你算计好的吗？JOJO”
+              我们的队伍：“这也是你算计好的吗JOJO”
             </view>
             <view class="weui-article__p">
-              吐槽一下，是周卓颖想要这个功能！
+              2019Hackthon作品
             </view>
             <image class="weui-article__img" src="JOJO.jpg" mode="aspectFit" style="width: 280px" />
         </view>

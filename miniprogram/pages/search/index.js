@@ -18,7 +18,19 @@ Page({
   getLostList: function () {
     console.log("get lost data")
     var self = this
-    wx.cloud.callFunction({
+
+    wx.cloud.database().collection("posts").where({ type: "lost" }).orderBy("date", "desc").limit(20).get({
+      success(res){
+        console.log(res)
+        self.setData({
+          lostList: res.data,
+          isLoaded: true
+        })
+      }
+    })
+
+
+    /*wx.cloud.callFunction({
       name: "stream",
       data: {
         searchKeyword: "lost",
@@ -31,24 +43,19 @@ Page({
           isLoaded:true
         })
       }
-    })
+    })*/
   },
 
   getFoundList: function () {
     console.log("get found data")
     var self = this
-    self.isLoaded=false
-    wx.cloud.callFunction({
-      name: "stream",
-      data: {
-        searchKeyword: "found",
-        rescount: 20
-      },
+    self.isLoaded = false
+    wx.cloud.database().collection("posts").where({ type: "found" }).orderBy("date", "desc").limit(20).get({
       success(res) {
         console.log(res)
         self.setData({
-          foundList: res.result.data,
-          isLoaded:true
+          foundList: res.data,
+          isLoaded: true
         })
       }
     })

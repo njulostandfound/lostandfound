@@ -90,35 +90,35 @@ checkFavored: function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({postid: options.postid})
-      console.log('展示记录id:', options.postid)
-      var self = this
-      wx.cloud.callFunction({
-        // 云函数名称
-        name: 'post',
-        // 传给云函数的参数
-        data: {postid: options.postid},
-        success(res) { 
-          console.log("查询成功")
-          console.log(res)
-          res = res.result
-          console.log(res.data[0].imgsrc)
-          self.setData({
-            openid: res.data[0]._openid,
-            title: res.data[0].title,
-            imgsrc: res.data[0].imgsrc,
-            cardid: res.data[0].cardid,
-            cardname: res.data[0].cardname,
-            location: res.data[0].location,
-            atten: res.data[0].atten,
-            contact: res.data[0].contact,
-            msg: res.data[0].msg,
-            type: res.data[0].type
-          })
-          self.checkFavored()
-        },
-        fail: console.error
-      })
+    this.setData({postid: options.postid})
+    console.log('展示记录id:', options.postid)
+    var self = this
+
+    const db = wx.cloud.database()
+    const posts = db.collection('posts')
+      posts.where({
+      _id: options.postid
+    }).get({
+      success(res) {
+        console.log("查询成功")
+        console.log(res)
+        console.log(res.data[0].imgsrc)
+        self.setData({
+          openid: res.data[0]._openid,
+          title: res.data[0].title,
+          imgsrc: res.data[0].imgsrc,
+          cardid: res.data[0].cardid,
+          cardname: res.data[0].cardname,
+          location: res.data[0].location,
+          atten: res.data[0].atten,
+          contact: res.data[0].contact,
+          msg: res.data[0].msg,
+          type: res.data[0].type
+        })
+        self.checkFavored()
+      },
+      fail: console.error
+    })
   },
   preview:function(){
     var that = this;

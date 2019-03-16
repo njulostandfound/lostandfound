@@ -112,7 +112,7 @@
           <view class="page">
             <view class="page__hd">
               <view class="page__title">查询信息</view>
-              <view class="page__desc">目前只支持校园卡失物招领噢~</view>
+              <view class="page__desc">请输入校园卡ID或失物描述等~</view>
             </view>
             <view class="page__bd">
               <form bindsubmit="formSubmit" bindreset="formReset">

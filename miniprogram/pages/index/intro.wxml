@@ -1,0 +1,48 @@
+<!--pages/index/about.wxml-->
+<view class="page">
+  <view class="page__hd">
+      <view class="page__title">使用说明</view>
+      <view class="page__desc">怎么使用我们的平台呢~</view>
+  </view>
+  <view class="page_bd">
+    <view class="weui-cells__title">主页</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        点击主页上方导航栏转到相应的页面。
+      </view>
+      <view class="weui-cell">
+        Lost，Found，Search分别是最近失物，最近招领，搜索页面
+      </view>
+    </view>
+    <view class="weui-cells__title">发布</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        选择发布校园卡或者一般失物。
+      </view>
+      <view class="weui-cell">
+        如果你发布的校园卡有对应的失物招领信息，它会自动加入到你的收藏中。
+      </view>
+    </view>
+    <view class="weui-cells__title">我的</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        你发布的信息会保存在“我的发布”中。
+      </view>
+      <view class="weui-cell">
+        你的收藏以及校园卡匹配的提醒信息会保存在“收藏与提醒中”。
+      </view>
+    </view>
+    <view class="weui-cells__title">失物信息</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        你可以点击失物信息下方的收藏来保存你想要的失物信息。
+      </view>
+      <view class="weui-cell">
+        你可以删除你发布的信息。
+      </view>
+      <view class="weui-cell">
+        点击图片可以放大查看。
+      </view>
+    </view>
+  </view>
+</view>

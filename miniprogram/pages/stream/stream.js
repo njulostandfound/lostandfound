@@ -10,7 +10,7 @@ Page({
     searchPostList: [],
     isFromSearch: true,
     searchPageNum: 20, 
-    rescount: 15,
+    rescount: 20,
     searchLoading: false,
     searchLoadingComplete: false,
     isLoaded:false
@@ -20,16 +20,19 @@ Page({
     console.log("get data")
     console.log(this.data.searchKeyword)
     var self = this
-    wx.cloud.callFunction({
-      name:"stream",
-      data:{
-        searchKeyword: self.data.searchKeyword,
-        rescount: self.data.rescount
-      },
-      success(res){
+    self.isLoaded = false
+    const db = wx.cloud.database()
+    const _ = db.command
+    db.collection("posts").where(_.or(
+      { _id: self.data.searchKeyword },
+      { title: self.data.searchKeyword },
+      { cardid: self.data.searchKeyword },
+      { cardname: self.data.searchKeyword }
+    )).orderBy("date", "desc").limit(20).get({
+      success(res) {
         console.log(res)
         self.setData({
-          searchPostList: res.result.data,
+          searchPostList: res.data,
           isLoaded: true
         })
       }

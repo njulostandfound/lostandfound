@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/search/index",
     "pages/index/index",
     "pages/index/mine",
     "pages/index/related",
     "pages/index/about",
-    "pages/search/index",
+    "pages/index/intro",
     "pages/stream/stream",
     "pages/submit/index",
     "pages/submit/msg_success",
@@ -19,7 +20,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#3cc51f",
+    "selectedColor": "#6a005f",
     "list": [{
       "pagePath": "pages/search/index",
       "text": "主页",
