@@ -26,6 +26,11 @@ Page({
       }
     }).then(res => {
       console.log(res)
+      if(res.result.data.length == 0){
+        self.setData({
+          isLoaded: true
+        })
+      }
       ids = res.result.data
       var i
       var count = 0

@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
   try {
     return await favor.where({
       postid: event.postid,
-      _openid: wxContext.OPENID
+      oid: wxContext.OPENID
     }).remove()
   } catch (e) {
     console.error(e)

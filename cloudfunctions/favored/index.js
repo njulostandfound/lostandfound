@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
   const oid = wxContext.OPENID
   try {
     return await favor.where({
-      _openid: oid,
+      oid: oid,
       postid: event.postid
     }).get()
   } catch (e) {

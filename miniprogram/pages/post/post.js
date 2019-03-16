@@ -28,11 +28,11 @@ favor: function(){
   const fav = db.collection('favorite')
   var self = this
   self.setData({ disabled: true })
-  fav.add({
-    data: { postid: this.data.postid, date: db.serverDate()},
+  wx.cloud.callFunction({
+    name:"favor",
+    data: { postid: this.data.postid},
     success(res){
       console.log(res)
-
       self.checkFavored()
       wx.showToast({
         title: '收藏成功！',

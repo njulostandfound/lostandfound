@@ -18,7 +18,7 @@ exports.main = async (event, context) => {
       return await posts.orderBy("date", "desc").limit(event.rescount).get()
     }
     else if (event.searchKeyword == "related"){
-      return await fa.where({ _openid: oid}).orderBy("date", "desc").limit(event.rescount).get();
+      return await fa.where({ oid: oid}).orderBy("date", "desc").limit(event.rescount).get();
     }
     else if(event.searchKeyword == "mine"){
       return await posts.where({

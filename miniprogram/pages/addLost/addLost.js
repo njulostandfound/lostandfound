@@ -35,6 +35,42 @@ Page({
       files:[]
     })
   },
+
+  match: function(info){
+    console.log("get into match", info)
+    
+    var self = this
+    wx.cloud.callFunction({
+      name:"match",
+      data:{
+        cardid:info.cardid,
+        type: info.type
+      },
+      success(res){
+        if(res.result.data.length){
+          var cor = res.result.data[0]
+          console.log("find cor", cor)
+          wx.cloud.callFunction({
+            name:"corfavor",
+            data:{
+              //myoid: get in cloud
+              mypostid:info.postid,
+              coroid: cor._openid,
+              corpostid: cor._id
+            },
+            success(res){
+              console.log("match done")
+            }
+          })
+        }
+        else{
+          console.log("no correspond post")
+        }
+      }
+    })
+
+  },
+
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var that = this;
@@ -64,6 +100,7 @@ Page({
           wx.navigateTo({
             url: 'msg_success?postid=' + res._id
           })
+          that.match({cardid:e.detail.value.cardid, type:e.detail.value.type, postid: res._id})
         }
       })
     }
