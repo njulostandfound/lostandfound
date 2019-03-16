@@ -8,10 +8,19 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    newMessage: true,
+    newMessage: '',
   },
 
-  onLoad: function() {
+  onShow: function () {
+    console.log('Fuckme')
+    this.setData({
+      newMessage: app.globalData.newMessage,
+    })
+    console.log('1'+app.globalData.newMessage);
+    console.log('2'+this.data.newMessage);
+  },
+
+  onLoad: function () {
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
@@ -37,7 +46,7 @@ Page({
     })
   },
 
-  onGetUserInfo: function(e) {
+  onGetUserInfo: function (e) {
     if (!this.logged && e.detail.userInfo) {
       this.setData({
         logged: true,
@@ -47,7 +56,7 @@ Page({
     }
   },
 
-  onGetOpenid: function() {
+  onGetOpenid: function () {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -82,7 +91,7 @@ Page({
         })
 
         const filePath = res.tempFilePaths[0]
-        
+
         // 上传图片
         const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
         wx.cloud.uploadFile({
@@ -94,7 +103,7 @@ Page({
             app.globalData.fileID = res.fileID
             app.globalData.cloudPath = cloudPath
             app.globalData.imagePath = filePath
-            
+
             wx.navigateTo({
               url: '../storageConsole/storageConsole'
             })
@@ -120,10 +129,7 @@ Page({
 
   //点击小红点
   clicked: function () {
-    this.setData({
-      newMessage: false,
-    })
-    console.log("clicked")
+    app.globalData.newMessage = false;
   }
 
 })

@@ -1,4 +1,6 @@
 // pages/post/post.js
+const app = getApp();
+
 Page({
 
   /**
@@ -40,7 +42,10 @@ favor: function(){
       })
     }
   })
+  app.globalData.newMessage = true;
+  console.log('newmessage: '+ app.globalData.newMessage);
 },
+
 unfavor: function(){
   console.log("get in unfavor")
   var self = this
@@ -51,8 +56,7 @@ unfavor: function(){
       postid: self.data.postid
     },
     success(res){
-      console.log(res)
-
+      //console.log(res)
       self.checkFavored()
       wx.showToast({
         title: '取消收藏成功！',
@@ -61,6 +65,7 @@ unfavor: function(){
     }
   })
 },
+
 checkFavored: function(){
   console.log("get in checkFavored")
   var self = this
@@ -68,8 +73,8 @@ checkFavored: function(){
     name:"favored",
     data:{postid: self.data.postid},
     success(res){
-      console.log(self.data.postid)
-      console.log(res)
+      //console.log(self.data.postid)
+      //console.log(res)
       if(res.result.data.length){
         self.setData({
           isFavored: true,

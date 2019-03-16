@@ -1,5 +1,6 @@
 // pages/addLost/addLost.js
 const util = require('../../utils.js');
+const app = getApp();
 
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 Page({
@@ -206,7 +207,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log("添加");
+    console.log(app.globalData);
   },
 
   /**

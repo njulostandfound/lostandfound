@@ -35,8 +35,8 @@ Page({
       var i
       var count = 0
       for (i in ids) {
-        console.log(i)
-        console.log(res.result.data[i].postid)
+        //console.log(i)
+        //console.log(res.result.data[i].postid)
         wx.cloud.callFunction({
           name: "stream",
           data: {
@@ -44,9 +44,9 @@ Page({
             rescount: 2
           },
           success(re) {
-            console.log(re)
-            console.log(i)
-            console.log(count)
+            //console.log(re)
+            //console.log(i)
+            //console.log(count)
             var tmp = self.data.searchPostList
             tmp[tmp.length] = re.result.data[0]
             self.setData({

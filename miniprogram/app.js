@@ -1,5 +1,9 @@
 //app.js
 App({
+  globalData:{
+      newMessage: true
+  },
+
   onLaunch: function () {
     
     if (!wx.cloud) {
@@ -9,7 +13,6 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
   }
+  
 })
