@@ -1,7 +1,7 @@
 //app.js
 App({
   globalData:{
-      newMessage: true
+      newMessage: false
   },
 
   onLaunch: function () {
