@@ -20,6 +20,7 @@ Page({
     type: "失物状态读取中",
     filePath: "",
     numOfImages: 1,
+    mine: false,
     isFavored: false,
     disabled: false
   },
@@ -91,6 +92,43 @@ checkFavored: function(){
     }
   })
 },
+
+checkMine: function(){
+  var self = this
+  wx.cloud.callFunction({
+    name:"mine",
+    success(res){
+      console.log("oid of the post:", res)
+      self.setData({
+        mine: (res.result.openid == self.data.openid)
+      })
+      console.log("mine:", self.data.mine)
+    }
+  })
+},
+
+remove: function(){
+  console.log("get into remove")
+  var self = this
+  wx.showModal({
+    title: '删除消息',
+    content: '您确定要删除失物招领消息吗？',
+    confirmText: "确认",
+    cancelText: "取消",
+    success: function (res) {
+      console.log(res);
+      if (res.confirm) {
+        const db = wx.cloud.database()
+        db.collection("posts").doc(self.data.postid).remove()
+        wx.navigateBack({
+          delta: 1
+        })
+      } else {
+        console.log('取消删除')
+      }
+    }
+  })
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -122,6 +160,7 @@ checkFavored: function(){
           type: res.data[0].type
         })
         self.checkFavored()
+        self.checkMine()
       },
       fail: console.error
     })
