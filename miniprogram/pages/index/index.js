@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    newMessage: true,
   },
 
   onLoad: function() {
@@ -116,5 +117,13 @@ Page({
       }
     })
   },
+
+  //点击小红点
+  clicked: function () {
+    this.setData({
+      newMessage: false,
+    })
+    console.log("clicked")
+  }
 
 })
