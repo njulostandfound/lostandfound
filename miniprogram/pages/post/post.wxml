@@ -4,15 +4,12 @@
     <view class="page__hd">
         <view class="page__title">{{title}}</view>
     </view>
+
     <view class="page__bd">
-      <view class="weui_article">
-        <view class="weui-article__p">
-          <view wx:for="{{imgsrc}}" wx:for-item="itemName">
-            <image class="weui-article__img" src="{{itemName}}" mode="widthFix" style="width: 300px; height: 180px; margin: 10px" bindtap='preview'/>
-            <!-- 可能需要用for循环展示图片-->
-          </view>
-        </view>
-      </view>
+      <scroll-view scroll-x="true" style="display:flex;white-space:nowrap;flex-direction: row " >
+              <image src="{{imgsrc[0]}}" mode="widthFix" style="display:inline-block" bindtap='preview'/>
+      </scroll-view>
+      <view class="weui-cells__title">共{{numOfImages}}张图片，点击图片预览~</view>
       <view class="weui-cells weui-cells_after-title">
 
         <view class="weui-cell" wx:if="{{cardid != ''}}">
