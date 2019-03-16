@@ -162,7 +162,8 @@ Page({
           msg: e.detail.value.msg,
           type: e.detail.value.type,
           filePath: cloudPathPrefix,
-          numOfImages: that.data.files.length
+          numOfImages: that.data.files.length,
+          date: db.serverDate()
         },
         success(res) {
           console.log(res)

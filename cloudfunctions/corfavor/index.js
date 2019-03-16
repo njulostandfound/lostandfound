@@ -32,6 +32,13 @@ exports.main = async (event, context) => {
     },
     fail: console.error
   })
+  /*wx.request({
+    url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxd2845ff8635833df&secret=a133ecc76740718d4bcc2fc2f8cc010a',
+    success(res) {
+      console.log(res)
+    }
+  })*/
+ 
   /*
   return {
     event,
