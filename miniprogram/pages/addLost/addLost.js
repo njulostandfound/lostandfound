@@ -61,6 +61,7 @@ Page({
             },
             success(res){
               console.log("match done")
+              app.globalData.newMessage = true;
             }
           })
         }
